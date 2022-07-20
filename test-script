@@ -1,0 +1,14 @@
+let prediction = await Prediction.deployed()
+let predictions = await  PredictionsContract.deployed()
+let staker = await PredictionStaker.deployed()
+let referal = await PredictionReferral.deployed()
+  
+
+
+let _minBetAmount = web3.utils.toWei('0.02', 'ether')
+
+await prediction.initialize("0x2514895c72f50D8bd4B4F9b1110F0D6bD2c97526", "300",_minBetAmount,"0x6fD5D6C24eA2595A6b702CffcF3d4d97989e2834",2,2,2,referal.address,staker.address)
+
+
+
+predictions.addPrediction(0,prediction)
